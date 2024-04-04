@@ -13,8 +13,10 @@ namespace BAA_Task_4
             char[,] map;
             bool isEndGame = false;
             int playerStepValue = 1;
-
             Console.CursorVisible = false;
+
+            Console.Write("Лабиринт\nВведите ваше кол-во здоровья: ");
+            int healthBar = Convert.ToInt32(Console.ReadLine()); healthBar += 1;
 
             map = ReadMap(mapFileName);
 
@@ -23,6 +25,14 @@ namespace BAA_Task_4
             while (isEndGame == false)
             {
                 Console.Clear();
+
+                healthBar--;
+                Console.WriteLine("Кол-во ходов: " + healthBar);
+                if (healthBar == 0)
+                {
+                    Console.WriteLine("Лабиринт не пройден!");
+                    break;
+                }
 
                 ShowMap(map);
 
@@ -37,7 +47,7 @@ namespace BAA_Task_4
                 isEndGame = CheckEndLevel(playerXNext, playerYNext, endLevelX, endLevelY);
             }
             Console.Clear();
-            Console.WriteLine("Вы прошли лабиринт!");
+            Console.WriteLine("Конец");
             Console.ReadKey();
         }
 
@@ -167,4 +177,4 @@ namespace BAA_Task_4
             return isEnd;
         }
     }
-}
+} 
