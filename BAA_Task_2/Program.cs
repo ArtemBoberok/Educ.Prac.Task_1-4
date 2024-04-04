@@ -42,7 +42,7 @@ namespace BAA_Task_2
             }
             catch
             {
-                Console.WriteLine("Введен неверный элемент!");
+                Console.WriteLine("Введен неверный элемент, попробуйте заново!");
             }
         }
         static bool CheckSameColor(string pos1, string pos2)
